@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virundhu Tech - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="flames"></div>
+        <!-- Embers will be added dynamically with JavaScript -->
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <div class="logo-icon">🔥</div>
+                <div class="logo-text">Virundhu Tech</div>
+                <span class="logo-tamil">(விருந்து)</span>
+            </div>
+            
+            <h1 class="page-title">Restaurant Management System</h1>
+            
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Email or Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your email or username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="form-actions">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <button type="submit" class="login-btn">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Create floating ember particles for the fire effect
+        function createEmbers() {
+            const backgroundAnimation = document.querySelector('.background-animation');
+            const screenWidth = window.innerWidth;
+            
+            // Create 30 ember particles
+            for (let i = 0; i < 30; i++) {
+                const ember = document.createElement('div');
+                ember.classList.add('ember');
+                
+                // Random position, size, and animation duration
+                const size = Math.random() * 8 + 3;
+                const posX = Math.random() * screenWidth;
+                const duration = Math.random() * 4 + 3;
+                const delay = Math.random() * 5;
+                
+                ember.style.width = `${size}px`;
+                ember.style.height = `${size}px`;
+                ember.style.left = `${posX}px`;
+                ember.style.bottom = '0px';
+                ember.style.opacity = Math.random() * 0.7 + 0.3;
+                ember.style.animationDuration = `${duration}s`;
+                ember.style.animationDelay = `${delay}s`;
+                
+                backgroundAnimation.appendChild(ember);
+            }
+        }
+
+        // Create embers when the page loads
+        window.addEventListener('load', createEmbers);
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real application, you would perform authentication here
+            // For demo purposes, we'll just redirect to the dashboard
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
